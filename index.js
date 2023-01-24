@@ -106,12 +106,19 @@ app.patch('/admin/edit/:id', async (req, res) => {
 });
 
 //user router to list all jobs
-app.get('/jobList',async(req,res)=>{
+app.get('admin/jobList',async(req,res)=>{
     let jobs=[]
    const data=await JobModel.find()
    jobs.push({data})
    res.send(jobs)
 })
+app.get('user/jobList', async (req, res) => {
+    let jobs = []
+    const data = await JobModel.find()
+    jobs.push({ data })
+    res.send(jobs)
+})
+
 
 app.get('/applied',(req,res)=>{
     res.send()
