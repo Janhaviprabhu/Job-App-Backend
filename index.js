@@ -77,7 +77,7 @@ app.post('/admin/jobPost',async(req,res)=>{
         position,
     });
     await job_lists.save();
-    res.send({ job_lists });
+    res.send({ "message": "Job posted successfully" });
 
 })
 app.delete('/admin/delete/:id',async(req,res)=>{
@@ -104,6 +104,8 @@ app.patch('/admin/edit/:id', async (req, res) => {
         }
     }
 });
+
+//user router to list all jobs
 app.get('/jobList',async(req,res)=>{
     let jobs=[]
    const data=await JobModel.find()
